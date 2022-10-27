@@ -56,6 +56,22 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		return 0; // 현재 비밀번호 불일치 시 0 반환
 	}
+
+	// 회원 탈퇴 서비스
+	@Transactional
+	@Override
+	public int memberDelete(int memberNo, String memberPw) {
+		
+		String encPw = dao.selectEncPw(memberNo);
+		
+		if (bcrypt.matches(memberPw, encPw)) {
+			int result = dao.memberDelete(memberNo);
+			
+			return result;
+		}
+		
+		return 0;
+	}
 	
 	
 }

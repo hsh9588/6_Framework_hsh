@@ -40,4 +40,14 @@ public class MyPageDAO {
 		
 		return sqlSession.update("myPageMapper.changePw", paramMap);
 	}
+
+	
+	/** 회원 탈퇴 DAO
+	 * @param memberNo
+	 * @param memberPw
+	 * @return result
+	 */
+	public int memberDelete(int memberNo) {
+		return sqlSession.update("myPageMapper.memberDelete", memberNo);
+	}
 }

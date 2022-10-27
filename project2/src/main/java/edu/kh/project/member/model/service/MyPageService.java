@@ -14,4 +14,6 @@ public interface MyPageService {
 
 	int changePw(Map<String, Object> paramMap);
 
+	int memberDelete(int memberNo, String memberPw);
+
 }

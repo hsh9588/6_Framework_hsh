@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.service.MyPageService;
@@ -18,6 +20,8 @@ import edu.kh.project.member.model.vo.Member;
 // -> 요청주소 중 앞에 공통된 부분을 작성하여
 //	  해당 유형을 요청을 모두 받아들인다고 
 @RequestMapping("/member/myPage")
+
+@SessionAttributes("loginMember") // 탈퇴 성공 시 로그아웃에 사용
 
 @Controller // bean 등록
 public class MyPageController {
@@ -121,6 +125,54 @@ public class MyPageController {
 		
 		ra.addFlashAttribute("message", message);
 	
+		return "redirect:" + path;
+	}
+	
+	// 회원 탈퇴 페이지 이동
+	@GetMapping("/delete")
+	public String memberDelete() {
+		return "member/myPage-delete";
+	}
+	
+	// 회원 탈퇴
+	@PostMapping("/delete")
+	public String memberDelete(@SessionAttribute("loginMember") Member loginMember,
+			String memberPw, SessionStatus status, RedirectAttributes ra) {
+	
+		// 서비스 호출 후 결과 반환 받기
+		int result = service.memberDelete(loginMember.getMemberNo(), memberPw);
+							// MEMBER_DEL_FL = 'N'으로 UPDATE
+		String message = null;
+		String path = null;
+		
+		if(result > 0) { // 성공
+			message = "탈퇴 되었습니다...";
+			
+			path = "/"; // 메인 페이지
+			
+			// 로그아웃 코드 추가
+			
+			status.setComplete();
+			
+		} else { // 실패
+			message = "비밀번호가 일치하지 않습니다.";
+			
+			path = "delete"; // 탈퇴 페이지
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		//status.setComplete(); // 세션 무효화
+		// -> 클래스 레벨에 작성된
+		// @SessionAttributes("key") 에 작성된
+		// key가 일치하는 값만 무효화
+		
+		// ex) session에서 "loginMember"를 없애야 한다.
+		// == @SessionAttributes("loginMember")
+		//	  ...
+		//	  status.complete(); // "loginMember" 무효화
+		
+		
 		return "redirect:" + path;
 	}
 }

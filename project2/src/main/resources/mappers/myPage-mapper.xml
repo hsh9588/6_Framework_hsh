@@ -52,4 +52,11 @@
 	</update>
 	<!-- 파라미터가 Map인 경우 Key값만 작성하면 값을 얻어옴 -->
 	
+	<update id="memberDelete">
+		UPDATE "MEMBER" SET
+		MEMBER_DEL_FL = 'Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+	
 </mapper>
