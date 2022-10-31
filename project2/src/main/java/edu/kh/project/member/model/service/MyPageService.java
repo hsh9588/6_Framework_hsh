@@ -16,4 +16,5 @@ public interface MyPageService {
 
 	int memberDelete(int memberNo, String memberPw);
 
+
 }

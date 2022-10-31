@@ -2,6 +2,9 @@ package edu.kh.project.member.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -137,7 +140,8 @@ public class MyPageController {
 	// 회원 탈퇴
 	@PostMapping("/delete")
 	public String memberDelete(@SessionAttribute("loginMember") Member loginMember,
-			String memberPw, SessionStatus status, RedirectAttributes ra) {
+			String memberPw, SessionStatus status, RedirectAttributes ra,
+			HttpServletResponse resp) {
 	
 		// 서비스 호출 후 결과 반환 받기
 		int result = service.memberDelete(loginMember.getMemberNo(), memberPw);
@@ -151,8 +155,13 @@ public class MyPageController {
 			path = "/"; // 메인 페이지
 			
 			// 로그아웃 코드 추가
-			
 			status.setComplete();
+			
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			
+			cookie.setMaxAge(0);
+			cookie.setPath(path);
+			resp.addCookie(cookie);
 			
 		} else { // 실패
 			message = "비밀번호가 일치하지 않습니다.";
