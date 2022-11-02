@@ -12,11 +12,12 @@
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
 
+    <%-- 폰트어썸 사이트 이용 --%>
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-     <main>
+    <main>
         <%-- header.jsp 추가(포함) --%>
         <%-- 
             jsp 액션 태그중 include 
@@ -40,8 +41,17 @@
 
                         <%-- 로그인 x인 경우 --%>
                         <c:when test="${empty sessionScope.loginMember}">
-                            <form action="/member/login" name="login-frm" method="POST">
-                    
+                            <form action="/member/login" name="login-frm" method="POST" 
+                                onsubmit="return loginValidate();">
+
+                            <%-- 
+                                form태그의 submit 이벤트를 취소시키는 방법1
+
+                                -> 인라인 이벤트 모델의 결과로 false를 리턴하면
+                                    제출 이벤트 취소된다.
+                            --%>
+
+
                                 <fieldset id="id-pw-area">
                                     <section>
                                         <input type="text" name="memberEmail" placeholder="이메일" 
@@ -63,7 +73,7 @@
                                 </c:if>
 
                                 <label>
-                                    <input type="checkbox" name="saveId" ${temp}> 아이디 저장
+                                    <input type="checkbox" id="saveId" name="saveId" ${temp}> 아이디 저장
                                 </label>
 
                                 <%-- 회원가입 / ID/PW 찾기 --%>
@@ -104,10 +114,11 @@
             </section>
         </section>
 
-     </main>
+    </main>
 
     <%-- footer.jsp 포함 --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
+    <script src="/resources/js/main.js"></script>
 </body>
 </html>
