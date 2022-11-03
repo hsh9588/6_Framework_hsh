@@ -12,6 +12,9 @@
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
 
+    <%-- 파비콘 아이콘 설정 --%>
+    <%--  <link href="/resources/images/logo.jpg" rel="shortcut icon" type="image/x-icon"> --%>
+
     <%-- 폰트어썸 사이트 이용 --%>
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 </head>

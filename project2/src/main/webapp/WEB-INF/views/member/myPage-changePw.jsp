@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="/resources/css/myPage-style.css">
 
+    <%-- 파비콘 아이콘 설정 --%>
+    <%-- <link href="/resources/images/logo.jpg" rel="shortcut icon" type="image/x-icon"> --%>
+
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -30,18 +33,18 @@
                     현재 비밀번호가 일치하는 경우 새 비밀번호로 변결할 수 있습니다.
                 </span>
 
-                <form action="changePw" method="POST" name="myPage-frm">
+                <form action="changePw" method="POST" name="myPage-frm" id="changePwForm">
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="currentPw" maxlength="20">
+                        <input type="password" name="currentPw" id="currentPw" maxlength="20">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" maxlength="20">
+                        <input type="password" name="newPw" id="newPw" maxlength="20">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" maxlength="20">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="20">
                     </div>
 
                     <button class="myPage-submit">변경하기</button>
@@ -57,5 +60,7 @@
 
     <!-- 다음 주소 api 추가 -->
 
+    <%-- myPage.js external 방식으로 추가 --%>
+    <script src="/resources/js/member/myPage.js"></script>
 </body>
 </html>

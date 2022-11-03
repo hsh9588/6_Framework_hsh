@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="/resources/css/myPage-style.css">
 
+    <%-- 파비콘 아이콘 설정 --%>
+    <%-- <link href="/resources/images/logo.jpg" rel="shortcut icon" type="image/x-icon"> --%>
+
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -30,10 +33,10 @@
                     현재 비밀번호가 일치하는 경우 탈퇴할 수 있습니다.
                 </span>
 
-                <form action="delete" method="POST" name="myPage-frm">
+                <form action="delete" method="POST" name="myPage-frm" id="memberDeleteForm">
                     <div class="myPage-row">
                         <label>비밀번호</label>
-                        <input type="password" name="memberPw" maxlength="20">
+                        <input type="password" name="memberPw" id="memberPw" maxlength="20">
                     </div>
 
                     <div class="myPage-row info-title">
@@ -75,7 +78,7 @@
                         <label for="agree">위 약관에 동의합니다.</label>
                     </div>
 
-                    <button class="myPage-submit">탈퇴하기</button>
+                    <button type="submit" class="myPage-submit">탈퇴하기</button>
                 </form>
             </section>
 
@@ -87,5 +90,7 @@
 
     <!-- 다음 주소 api 추가 -->
 
+    <%-- myPage.js external 방식으로 추가 --%>
+    <script src="/resources/js/member/myPage.js"></script>
 </body>
 </html>

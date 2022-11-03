@@ -16,7 +16,10 @@
 
     <link rel="stylesheet" href="/resources/css/myPage-style.css">
 
-     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+    <%-- 파비콘 아이콘 설정 --%>
+    <link href="/resources/images/logo.jpg" rel="shortcut icon" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -81,6 +84,9 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <%-- myPage.js external 방식으로 추가 --%>
+    <script src="/resources/js/member/myPage.js"></script>
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
