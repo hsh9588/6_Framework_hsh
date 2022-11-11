@@ -388,3 +388,16 @@ label[for='header-menu-toggle']:hover{
     margin: 0;
     color: gray;
 }
+
+/* 회원 정보 조회(AJAX) 테이블 */
+#content-1-2{
+width: 500px;
+margin: 50px auto;
+}
+
+.secession{
+    background-color: gray;
+}
+.secession > td:first-of-type{
+    text-decoration: line-through;
+}
