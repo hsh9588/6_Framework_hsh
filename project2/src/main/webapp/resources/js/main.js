@@ -29,7 +29,6 @@ if(saveId != null){
             // window.confirm("내용") : 확인 == true, 취소 == false 반환
             if(!confirm(str)){ // 취소를 누른 경우
                 
-    
                 // 체크 해제
                 this.checked = false;
             }

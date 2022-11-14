@@ -96,5 +96,4 @@ public class AjaxController {
 		return new Gson().toJson(memberList);
 	}
 	
-	
 }
