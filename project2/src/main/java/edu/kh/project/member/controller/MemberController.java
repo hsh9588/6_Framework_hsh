@@ -218,12 +218,13 @@ public class MemberController {
 		return "redirect:" + path;
 	}
 	
-	// 로그인 페이지 이동
+	// 로그인 페이지로 이동
 	@GetMapping("/member/login")
 	public String loginPage() {
+		
 		return "member/login";
 	}
-	
+
 	// 로그아웃
 	@GetMapping("/member/logout")
 	public String logout(SessionStatus status) {
