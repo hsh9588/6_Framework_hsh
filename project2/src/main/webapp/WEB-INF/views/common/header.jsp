@@ -54,16 +54,10 @@
 
         <nav>
             <ul>
-
-                 <c:forEach var="boardType" items="${boardTypeMap}">
-                    <%-- 
-                        EL 을 이용해서 Map 데이터를 다루는 방법 
-                        key ==> ${변수명.key}
-                        value ==> ${변수명.value}
-                    --%>
-
-                    <li><a href="/board/${boardType.key}/list">${boardType.value}</a></li>
-
-                 </c:forEach>
+                <c:forEach var="boardType" items="${boardTypeList}">
+                    <li>
+                        <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                    </li>
+                </c:forEach>
             </ul>
         </nav>
