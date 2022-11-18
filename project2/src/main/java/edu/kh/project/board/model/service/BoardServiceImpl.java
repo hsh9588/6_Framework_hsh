@@ -50,4 +50,12 @@ public class BoardServiceImpl implements BoardService{
 		return map;
 	}
 
+	/**
+	 * 게시글 상세 조회
+	 */
+	@Override
+	public Board selectBoardDetail(int boardNo) {
+		return dao.selectBoardDetail(boardNo);
+	}
+
 }
