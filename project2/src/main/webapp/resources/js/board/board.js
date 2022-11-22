@@ -89,12 +89,27 @@ boardLike.addEventListener("click", e => {
 
                 } else{
                     console.log("감소 실패");
-                }
 
+                }
             },
             error : () => {console.log("감소 에러");}
-        });
-        
-    }
 
+        });
+    }
+});
+
+// 게시글 삭제
+const deleteBtn = document.getElementById("deleteBtn");
+
+deleteBtn.addEventListener("click", () => {
+
+    if(confirm("정말 삭제 하시겠습니까?")){
+
+        // /board/{boardCode}/{boardNo}/delete GET
+        location.href = location.pathname + "/delete";
+                    //  /board/1/1980/delete
+
+        
+
+    }
 });
