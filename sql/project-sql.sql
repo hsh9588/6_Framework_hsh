@@ -370,12 +370,23 @@ FROM DUAL) A
 SELECT * FROM BOARD_IMG
 	
 ROLLBACK;
+
+SELECT * FROM BOARD_IMG
+WHERE BOARD_NO = 2007;
+	
+-- 이미지 삭제
+DELETE FROM BOARD_IMG
+WHERE BOARD_NO = 2007
+AND IMG_ORDER= IN(1, 2, 3, 4);
 	
 	
-	
-	
-	
-	
+-- 게시글 수정(제목, 내용)
+
+UPDATE BOARD SET
+BOARD_TITLE = #{boardTitle},
+BOARD_CONTENT = #{boardContent}
+WHERE BOARD_NO = #{boardNo}
+
 	
 	
 	
