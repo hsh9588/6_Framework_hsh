@@ -178,5 +178,6 @@
     crossorigin="anonymous"></script>
 
     <script src="/resources/js/board/board.js"></script>
+    <script src="/resources/js/board/comment.js"></script>
 </body>
 </html>

@@ -30,25 +30,22 @@
                     <%-- 로그인 상태일 경우에 답글 버튼 노출 --%>
                     <c:if test="${!empty loginMember}">
                         <div class="comment-btn-area">
-                            <button>답글</button>   
+                            <button onclick="showInsertComment(${comment.commentNo})">답글</button>   
                         <%-- 로그인 회원 == 댓글 작성자 같으면 수정/삭제 버튼 노출 --%>
                         <c:if test="${loginMember.memberNo == comment.memberNo}">
-                            <button>수정</button>     
-                            <button>삭제</button>
+                            <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
+                            <button onclick="deleteComment(${comment.commentNo})">삭제</button>
                         </c:if>
                         
                         </div>
                     </c:if>
                     
-                    
-
                 </li>
             </c:forEach>
             
         </ul>
     </div>
     
-
     <!-- 댓글 작성 부분 -->
     <div class="comment-write-area">
         <textarea id="commentContent"></textarea>
