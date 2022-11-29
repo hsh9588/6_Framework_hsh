@@ -413,8 +413,9 @@ AND BOARD_DEL_FL = 'N'
 AND MEMBER_NICKNAME LIKE '%팔계%' 
 	
 	
-	
-	
+SELECT *
+FROM (
+SELECT MEM)
 	
 	
 	
