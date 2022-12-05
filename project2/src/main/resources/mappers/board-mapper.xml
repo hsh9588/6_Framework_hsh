@@ -151,6 +151,7 @@
 		WHERE BOARD_NO = #{boardNo}
 	</update>
 	
+	<!-- 좋아요 여부 체크 -->
 	<select id="boardLikeCheck" resultType="_int">
 		SELECT COUNT(*) FROM BOARD_LIKE
 		WHERE BOARD_NO = #{boardNo}
